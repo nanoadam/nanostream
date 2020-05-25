@@ -1,0 +1,16 @@
+// Variables
+$primary-color: rgb(0, 101, 196);
+$secondary-color: rgb(255, 146, 44);
+
+.bg-primary {
+  background: $primary-color !important;
+}
+
+nav {
+}
+
+// Navbar
+$navbar-height: 50px;
+$navbar-brand-font-size: 1.4rem;
+
+@import '../node_modules/materialize-css/sass/materialize.scss';
