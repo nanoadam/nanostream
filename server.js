@@ -8,6 +8,12 @@ const server = express();
 // Middleware
 
 // Routes
+
+// TEST ROUTE FOR APP
+server.get("/api/new", (req, res) => {
+  return res.send("Hello World");
+});
+
 server.use("/api/v1/creators", creators);
 
 const PORT = process.env.PORT || 3000;
