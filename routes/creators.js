@@ -2,14 +2,14 @@ const router = require("express").Router();
 const {
   getCreators,
   getCreator,
-  newCreator,
+  addCreator,
   updateCreator,
   deleteCreator,
 } = require("../controllers/creators");
 
 router.get("/", getCreators);
 router.get("/:id", getCreator);
-router.post("/", newCreator);
+router.post("/", addCreator);
 router.put("/:id", updateCreator);
 router.delete("/:id", deleteCreator);
 

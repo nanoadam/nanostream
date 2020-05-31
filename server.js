@@ -1,20 +1,15 @@
 const express = require("express");
-const colors = require("colors");
+const { connectDB } = require("./config/db");
 
-const creators = require("./routes/creators");
+require("colors");
 
 const server = express();
 
-// Middleware
+connectDB();
 
-// Routes
+server.use(express.json());
 
-// TEST ROUTE FOR APP
-server.get("/api/new", (req, res) => {
-  return res.send("Hello World");
-});
-
-server.use("/api/v1/creators", creators);
+server.use("/api/v1/creators", require("./routes/creators"));
 
 const PORT = process.env.PORT || 3000;
 
