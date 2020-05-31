@@ -1,0 +1,31 @@
+.navbar {
+  background: $primary-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  width: 100%;
+  color: white;
+  position: fixed;
+  top: 0;
+  padding: 0 40px;
+  opacity: 95%;
+
+  h2 {
+    margin: 0;
+  }
+
+  a {
+    margin: 0;
+    color: white;
+    padding: 0 1rem;
+  }
+
+  ul {
+    display: flex;
+
+    li {
+      list-style: none;
+    }
+  }
+}

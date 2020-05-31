@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Open Sans Condensed", sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 h1,
@@ -16,9 +16,17 @@ h5,
 h6 {
   margin-top: 1rem;
   margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 p {
   margin-top: 0.2rem;
   margin-bottom: 0.4rem;
+  font-weight: 400;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
 }

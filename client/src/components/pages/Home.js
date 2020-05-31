@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const Home = (props) => {
   return (
-    <div>
+    <div className="container layout">
       <h1>Home Page</h1>
     </div>
   );
