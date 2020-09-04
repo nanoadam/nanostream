@@ -1,7 +1,8 @@
-const express = require("express");
-const { connectDB } = require("./config/db");
+const express = require('express');
+const { connectDB } = require('./config/db');
+require('dotenv').config();
 
-require("colors");
+require('colors');
 
 const server = express();
 
@@ -9,7 +10,7 @@ connectDB();
 
 server.use(express.json());
 
-server.use("/api/v1/creators", require("./routes/creators"));
+server.use('/api/v1/creators', require('./routes/creators'));
 
 const PORT = process.env.PORT || 3000;
 
