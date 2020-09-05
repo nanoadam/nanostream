@@ -10,6 +10,7 @@ export default function (state = initialState, action) {
     case SET_CREATORS:
       return {
         ...state,
+        creators: action.payload.data,
       };
     default:
       return state;

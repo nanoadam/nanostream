@@ -1,0 +1,53 @@
+.card {
+  border: 1px solid #ccc;
+  padding: 1.5rem;
+  margin: 1rem;
+
+  &-flex {
+    display: flex;
+  }
+
+  &-full-width {
+    width: 100%;
+  }
+
+  &-img {
+    flex: 1;
+  }
+
+  &-body {
+    flex: 3;
+  }
+
+  &-side {
+    flex: 1.5;
+    align-self: center;
+    text-align: right;
+  }
+}
+
+// Card Colors
+.card {
+  &-primary {
+    background: $primary-color;
+    color: white;
+
+    a {
+      color: white;
+    }
+  }
+
+  &-secondary {
+    background: $secondary-color;
+  }
+
+  &-info {
+    background: $info-color;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .card-flex {
+    flex-direction: column;
+  }
+}

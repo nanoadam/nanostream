@@ -1,0 +1,18 @@
+.btn {
+  padding: 0.8rem 1rem;
+
+  // Colors
+  &-primary {
+    background-color: $primary-color;
+    color: white;
+  }
+
+  &-secondary {
+    background: $secondary-color;
+  }
+
+  &-info {
+    background: $info-color;
+    color: black !important;
+  }
+}

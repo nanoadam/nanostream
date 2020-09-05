@@ -47,3 +47,10 @@ exports.updateCreator = (req, res, next) => {
 exports.deleteCreator = (req, res, next) => {
   res.send("Deleting Creator");
 };
+
+// @route     /api/v1/creators/:id/
+// @desc      UPDATE Upload a Creator Logo/Img
+// @access    Private - Role: Creator
+exports.uploadCreatorImage = (req, res, next) => {
+  res.send("Uploading Creator Image");
+};
