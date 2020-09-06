@@ -1,4 +1,4 @@
-import { SET_CREATORS } from "../actions/types";
+import { SET_CREATORS, SET_CREATOR } from '../actions/types';
 
 const initialState = {
   creators: [],
@@ -11,6 +11,11 @@ export default function (state = initialState, action) {
       return {
         ...state,
         creators: action.payload.data,
+      };
+    case SET_CREATOR:
+      return {
+        ...state,
+        creator: action.payload.data,
       };
     default:
       return state;

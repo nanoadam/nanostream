@@ -1,4 +1,4 @@
-const Creator = require("../models/Creator");
+const Creator = require('../models/Creator');
 // @route     /api/v1/creators/
 // @desc      GET all creators
 // @access    Public
@@ -6,7 +6,7 @@ exports.getCreators = async (req, res, next) => {
   try {
     const creators = await Creator.find();
     if (creators.length === 0)
-      return res.status(200).json({ success: false, err: "No Creators Found" });
+      return res.status(200).json({ success: false, err: 'No Creators Found' });
     else res.status(200).json({ success: true, data: creators });
   } catch (error) {
     console.log(error);
@@ -16,8 +16,11 @@ exports.getCreators = async (req, res, next) => {
 // @route     /api/v1/creators/:id
 // @desc      GET single creator by ID
 // @access    Public
-exports.getCreator = (req, res, next) => {
-  res.send("Getting A Single Creator");
+exports.getCreator = async (req, res, next) => {
+  const creator = await Creator.findById(req.params.id);
+  if (creator) {
+    return res.status(200).json({ success: true, data: creator });
+  } else res.status(404).json({ success: false, err: 'Creator not found' });
 };
 
 // @route     /api/v1/creators/
@@ -45,12 +48,12 @@ exports.updateCreator = (req, res, next) => {
 // @desc      DELETE a creator
 // @access    Private - Role: User
 exports.deleteCreator = (req, res, next) => {
-  res.send("Deleting Creator");
+  res.send('Deleting Creator');
 };
 
 // @route     /api/v1/creators/:id/
 // @desc      UPDATE Upload a Creator Logo/Img
 // @access    Private - Role: Creator
 exports.uploadCreatorImage = (req, res, next) => {
-  res.send("Uploading Creator Image");
+  res.send('Uploading Creator Image');
 };

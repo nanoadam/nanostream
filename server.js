@@ -1,7 +1,6 @@
-<<<<<<< HEAD
-const express = require("express");
-const { connectDB } = require("./config/db");
-const morgan = require("morgan");
+const express = require('express');
+const { connectDB } = require('./config/db');
+const morgan = require('morgan');
 require('dotenv').config();
 
 require('colors');
@@ -12,9 +11,9 @@ connectDB();
 
 server.use(express.json());
 
-server.use(morgan("dev"));
+server.use(morgan('dev'));
 
-server.use("/api/v1/creators", require("./routes/creators"));
+server.use('/api/v1/creators', require('./routes/creators'));
 
 const PORT = process.env.PORT || 3000;
 
