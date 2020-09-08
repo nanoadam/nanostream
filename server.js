@@ -14,6 +14,7 @@ server.use(express.json());
 server.use(morgan('dev'));
 
 server.use('/api/v1/creators', require('./routes/creators'));
+server.use('/api/v1/videos', require('./routes/videos'));
 
 const PORT = process.env.PORT || 3000;
 

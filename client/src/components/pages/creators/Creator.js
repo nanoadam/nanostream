@@ -20,7 +20,8 @@ const Creator = () => {
           <h1>{creator.name}</h1>
           <small>{creator.description}</small>
           <p>
-            <FaGlobe /> {creator.website}
+            <FaGlobe className="icon icon-small" />{' '}
+            <span className="icon-text">{creator.website}</span>
           </p>
         </React.Fragment>
       ) : (

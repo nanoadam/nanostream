@@ -1,25 +1,25 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const CreatorSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "Please enter a name"],
+    required: [true, 'Please enter a name'],
   },
   description: {
     type: String,
-    required: [true, "Please enter a description"],
+    required: [true, 'Please enter a description'],
   },
   website: {
     type: String,
-    required: [true, "Please enter a website"],
+    required: [true, 'Please enter a website'],
     match: [
       /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/,
-      "Please use a valid URL. Be sure to include HTTP or HTTPS",
+      'Please use a valid URL. Be sure to include HTTP or HTTPS',
     ],
   },
   country: {
     type: String,
-    required: [true, "Please enter a country"],
+    required: [true, 'Please enter a country'],
   },
   social: {
     facebook: {
@@ -37,8 +37,8 @@ const CreatorSchema = new mongoose.Schema({
   },
   owner: {
     type: mongoose.Schema.Types.ObjectID,
-    ref: "user",
+    ref: 'user',
   },
 });
 
-module.exports = Creator = mongoose.model("creator", CreatorSchema);
+module.exports = Creator = mongoose.model('Creator', CreatorSchema);
