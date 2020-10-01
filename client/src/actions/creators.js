@@ -2,11 +2,15 @@ import axios from 'axios';
 import { SET_CREATORS, SET_CREATOR } from './types';
 
 export const getCreators = () => async (dispatch) => {
-  const creators = await axios.get('/api/v1/creators');
-  return await dispatch({
-    type: SET_CREATORS,
-    payload: { data: creators.data.data },
-  });
+  try {
+    const creators = await axios.get('/api/v1/creators');
+    return await dispatch({
+      type: SET_CREATORS,
+      payload: { data: creators.data.data },
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getCreator = (id) => async (dispatch) => {

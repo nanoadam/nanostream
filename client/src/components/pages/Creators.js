@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { getCreators } from "../../actions/creators";
-import PropTypes from "prop-types";
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getCreators } from '../../actions/creators';
+import PropTypes from 'prop-types';
 
-const Creators = ({ getCreators, creators }) => {
+const Creators = ({ getCreators, creators, loading }) => {
   useEffect(() => {
     getCreators();
     // eslint-disable-next-line
@@ -24,19 +24,19 @@ const Creators = ({ getCreators, creators }) => {
                 to={`/creator/${creator._id}`}
                 className="btn btn-secondary"
               >
-                View Creator{" "}
+                View Creator{' '}
               </Link>
             </div>
           </div>
         </div>
       ))
     ) : (
-      <h1>Loading</h1>
+      <h2>No Creators not found</h2>
     );
   return (
     <div className="layout container">
       <h1>Creators</h1>
-      {displayCreators}
+      {loading ? <h1>Page Loading</h1> : displayCreators}
     </div>
   );
 };
@@ -45,6 +45,7 @@ Creators.propTypes = {};
 
 const mapStateToProps = (state) => ({
   creators: state.creators.creators,
+  loading: state.creators.loading,
 });
 
 export default connect(mapStateToProps, { getCreators })(Creators);

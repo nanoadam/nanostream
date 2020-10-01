@@ -1,4 +1,4 @@
-import { SET_CREATORS, SET_CREATOR } from '../actions/types';
+import { SET_CREATORS, SET_CREATOR, SET_LOADING } from '../actions/types';
 
 const initialState = {
   creators: [],
@@ -11,11 +11,18 @@ export default function (state = initialState, action) {
       return {
         ...state,
         creators: action.payload.data,
+        loading: false,
       };
     case SET_CREATOR:
       return {
         ...state,
         creator: action.payload.data,
+        loading: false,
+      };
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: true,
       };
     default:
       return state;

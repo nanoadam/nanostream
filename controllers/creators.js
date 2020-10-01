@@ -6,8 +6,8 @@ exports.getCreators = async (req, res, next) => {
   try {
     const creators = await Creator.find();
     if (creators.length === 0)
-      return res.status(200).json({ success: false, err: 'No Creators Found' });
-    else res.status(200).json({ success: true, data: creators });
+      return res.status(500).json({ success: false, err: 'No Creators Found' });
+    res.status(200).json({ success: true, data: creators });
   } catch (error) {
     console.log(error);
   }
