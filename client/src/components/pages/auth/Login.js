@@ -1,10 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Login = (props) => {
   return (
     <div className="container layout">
-      <h1>Login Page</h1>
+      <div className="card">
+        <h3 className="text-center">Login</h3>
+        <div className="form-group">
+          <label htmlFor="Email">Email Address</label>
+          <input type="text" placeholder="Email Address" />
+        </div>
+      </div>
     </div>
   );
 };
