@@ -1,3 +1,5 @@
+const { model } = require('mongoose');
+
 const creators = [
   {
     name: 'The Tech Channel',
@@ -11,4 +13,18 @@ const creators = [
       instagram: 'instagram.com/thetechchannel',
     },
   },
+  {
+    name: 'The Boston Channel',
+    description: 'I cover technical topics in Boston daily at 7 PM',
+    website: 'https://thebostonchannel.com',
+    country: 'United States',
+    social: {
+      facebook: 'facebook.com/thebostonchannel',
+      twitter: 'twitter.com/thebostonchannel',
+      linkedin: 'linkedin.com/thebostonchannel',
+      instagram: 'instagram.com/thebostonchannel',
+    },
+  },
 ];
+
+module.exports = creators;
