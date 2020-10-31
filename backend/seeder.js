@@ -1,13 +1,30 @@
 const { connectDB } = require('./config/db');
-const mongoose = require('mongoose');
 
 const creators = require('./data/creators');
 
+const Creator = require("./models/Creator");
+
 require('dotenv').config();
+
+require("colors")
 
 connectDB();
 
-const importData = () => {
+const importData = async () => {
   try {
-  } catch (err) {}
+    await Creator.deleteMany();
+
+    await Creator.insertMany(creators);
+
+    await console.log('Data Imported!'.green.inverse)
+
+    await process.exit();
+  } catch (err) {
+    console.log(`${err}`.red);
+    process.exit(1);
+  }
 };
+
+if(process.argv[2] === '-i') {
+  importData();
+}
