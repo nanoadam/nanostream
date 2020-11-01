@@ -1,8 +1,21 @@
+const Video = require("../models/Video");
+
 // @route     /api/v1/videos/
 // @desc      GET all videos
 // @access    Public
 exports.getVideos = async (req, res, next) => {
-  res.send('Getting all videos');
+  try {
+    const videos = await Video.find();
+    if(videos.length === 0) {
+      return res.status(500).json({ success: false, err: 'No Creators Found' });
+    }
+    res.status(200).json({
+      success: true,
+      videos
+    })
+  } catch (error) {
+    console.log(error)
+  }
 };
 
 // @route     /api/v1/videos/:id

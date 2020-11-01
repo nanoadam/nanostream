@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const VideoSchema = mongoose.Schema({
   title: {
     type: String,
@@ -11,7 +10,7 @@ const VideoSchema = mongoose.Schema({
     type: String,
   },
   creator: {
-    type: mongoose.Schema.ObjectID,
+    type: mongoose.Types.ObjectId,
     ref: 'Creator',
     required: true,
   },
@@ -21,7 +20,7 @@ const VideoSchema = mongoose.Schema({
   },
   views: [
     {
-      type: mongoose.Schema.ObjectID,
+      type: mongoose.Types.ObjectId,
       ref: 'User',
     },
   ],

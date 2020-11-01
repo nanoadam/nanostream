@@ -39,6 +39,16 @@ const CreatorSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectID,
     ref: 'user',
   },
+  videos: [
+    {
+      videoId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Videos'
+      },
+      name: String,
+      view: Number
+    }
+  ]
 });
 
 module.exports = Creator = mongoose.model('Creator', CreatorSchema);
