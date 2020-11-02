@@ -2,16 +2,31 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { FaGlobe } from 'react-icons/fa';
+import moment from 'moment';
 
-import PropTypes from 'prop-types';
+import { RootStateOrAny } from 'react-redux';
 import { getCreator } from '../../../actions/creators';
+import Videobox from '../../layout/Videobox';
+
+interface Params {
+  id: any;
+}
+
+interface Video {
+  title: string;
+  timestamp: Date;
+  videoId: number;
+  views: number;
+}
 
 const Creator = () => {
   const dispatch = useDispatch();
-  const params = useParams();
-  const creator = useSelector((state) => state.creators.creator);
+  const { id } = useParams<Params>();
+  const creator = useSelector(
+    (state: RootStateOrAny) => state.creators.creator
+  );
   useEffect(() => {
-    dispatch(getCreator(params.id));
+    dispatch(getCreator(id));
   }, []);
   return (
     <div className="container layout">
@@ -23,6 +38,12 @@ const Creator = () => {
             <FaGlobe className="icon icon-small" />{' '}
             <span className="icon-text">{creator.website}</span>
           </p>
+          <h3 style={{ background: '#333', color: 'white' }}>Creator Videos</h3>
+          <div className="grid grid-3">
+            {creator.videos.map((vid: Video) => (
+              <Videobox {...vid} key={vid.videoId} />
+            ))}
+          </div>
         </React.Fragment>
       ) : (
         'Loading'
@@ -30,7 +51,5 @@ const Creator = () => {
     </div>
   );
 };
-
-Creator.propTypes = {};
 
 export default Creator;

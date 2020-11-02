@@ -9,7 +9,7 @@ exports.getCreators = async (req, res, next) => {
       return res.status(500).json({ success: false, err: 'No Creators Found' });
     res.status(200).json({ success: true, data: creators });
   } catch (error) {
-    console.log(error);
+    next(err);
   }
 };
 
@@ -17,10 +17,14 @@ exports.getCreators = async (req, res, next) => {
 // @desc      GET single creator by ID
 // @access    Public
 exports.getCreator = async (req, res, next) => {
-  const creator = await Creator.findById(req.params.id);
-  if (creator) {
-    return res.status(200).json({ success: true, data: creator });
-  } else res.status(404).json({ success: false, err: 'Creator not found' });
+  try {
+    const creator = await Creator.findById(req.params.id);
+    if (creator) {
+      return res.status(200).json({ success: true, data: creator });
+    } else res.status(404).json({ success: false, err: 'Creator not found' });
+  } catch (err) {
+    next(err);
+  }
 };
 
 // @route     /api/v1/creators/
@@ -34,6 +38,7 @@ exports.addCreator = async (req, res, next) => {
     let errors = await Object.values(err.errors).map((val) => val.message);
     res.status(400).json({ success: false, err: errors });
     console.log(errors);
+    next(err);
   }
 };
 

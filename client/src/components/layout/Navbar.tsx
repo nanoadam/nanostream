@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Navbar = (props) => {
+
+const Navbar: React.FC = () => {
   return (
     <div className="navbar">
       <h2>NanoStream</h2>

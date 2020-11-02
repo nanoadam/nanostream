@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Login = (props) => {
+const Login = () => {
   return (
     <div className="container layout">
       <div className="card">

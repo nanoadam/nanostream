@@ -43,12 +43,17 @@ const CreatorSchema = new mongoose.Schema({
     {
       videoId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Videos'
+        ref: 'Videos',
       },
-      name: String,
-      view: Number
-    }
-  ]
+      title: String,
+      view: Number,
+      timestamp: String,
+    },
+  ],
+  timestamp: {
+    type: Number,
+    default: Date.now(),
+  },
 });
 
 module.exports = Creator = mongoose.model('Creator', CreatorSchema);

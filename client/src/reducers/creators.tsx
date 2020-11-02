@@ -5,7 +5,12 @@ const initialState = {
   loading: false,
 };
 
-export default function (state = initialState, action) {
+interface Action {
+  payload: any;
+  type: string
+}
+
+export default function (state = initialState, action: Action) {
   switch (action.type) {
     case SET_CREATORS:
       return {

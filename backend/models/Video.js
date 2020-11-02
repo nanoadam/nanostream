@@ -30,6 +30,10 @@ const VideoSchema = mongoose.Schema({
     enum: ['Public', 'Private'],
     default: 'Private',
   },
+  timestamp: {
+    type: Number,
+    default: Date.now(),
+  },
 });
 
 module.exports = mongoose.model('Video', VideoSchema);

@@ -1,17 +1,33 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { connect, RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { getCreators } from '../../actions/creators';
 import PropTypes from 'prop-types';
 
-const Creators = ({ getCreators, creators, loading }) => {
+interface Creator {
+  name: String;
+  description: String;
+  _id: number;
+}
+
+const Creators: React.FC = ({}) => {
+  const dispatch = useDispatch();
+
+  const creators = useSelector(
+    (state: RootStateOrAny) => state.creators.creators
+  );
+
+  const loading = useSelector(
+    (state: RootStateOrAny) => state.creators.loading
+  );
+
   useEffect(() => {
-    getCreators();
+    dispatch(getCreators());
     // eslint-disable-next-line
   }, []);
   const displayCreators =
     creators !== null && creators.length > 1 ? (
-      creators.map((creator) => (
+      creators.map((creator: Creator) => (
         <div key={creator._id}>
           <div className="card card-flex card-full-width card-primary">
             <div className="card-img"></div>
@@ -43,9 +59,4 @@ const Creators = ({ getCreators, creators, loading }) => {
 
 Creators.propTypes = {};
 
-const mapStateToProps = (state) => ({
-  creators: state.creators.creators,
-  loading: state.creators.loading,
-});
-
-export default connect(mapStateToProps, { getCreators })(Creators);
+export default Creators;

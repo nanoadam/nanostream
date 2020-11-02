@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const NotFound = (props) => {
+const NotFound = () => {
   return (
     <div className="layout container">
       <h1>Page Not Found</h1>
